@@ -1,5 +1,5 @@
 {
-  "name": "new-assistant",
+  "name": "new_assistant",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {

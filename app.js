@@ -14,8 +14,8 @@ app.post('/chat/receive', async (req, res) => {
   const { Body, From } = req.body;
   const User = From.split('+')[1];
 
-  console.log(`📥 Mensagem recebida de: ${User}`);
-  console.log(`📥 Corpo da mensagem: ${Body}`);
+  // console.log(`📥 Mensagem recebida de: ${User}`);
+  // console.log(`📥 Corpo da mensagem: ${Body}`);
 
   try {
     const n8nResponse = await axios.post(process.env.N8N_WEBHOOK_URL, {
@@ -25,8 +25,8 @@ app.post('/chat/receive', async (req, res) => {
 
     await sendWhatsappMessage(From, n8nResponse.data);
 
-    console.log('📤 Dados enviados para n8n com sucesso!');
-    console.log('📥 Resposta do n8n:', n8nResponse.data);
+    // console.log('📤 Dados enviados para n8n com sucesso!');
+    // console.log('📥 Resposta do n8n:', n8nResponse.data);
   } catch (error) {
     console.error('❌ Erro ao enviar dados para n8n:', error);
   }
