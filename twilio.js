@@ -8,20 +8,14 @@ const twilioWpp = process.env.TWILIO_WHATSAPP_NUMBER;
 const twilio = new Twilio(accountSid, authToken);
 
 async function sendWhatsappMessage(to, body) { 
-  console.log(body);
   try {
-    // console.log(`📤 Enviando Mensagem..`);
-    // console.log(`📤 to: ${to}`);
-    // console.log(`📤 body: ${body}`);
-    const message = await twilio.messages.create({ 
+    await twilio.messages.create({ 
       body: body,
       from: twilioWpp,
-      to: to,
-    });
-    // console.log(`📤 Mensagem Enviada com Sucesso!`);
-    // console.log(`📤 id: ${message.sid}`);    
+      to: to
+    });   
   } catch (error) {
-    // console.error("❌ Erro ao enviar mensagem:", error);
+    console.error("❌ Erro ao enviar mensagem:", error);
     throw error;
   }
 }
